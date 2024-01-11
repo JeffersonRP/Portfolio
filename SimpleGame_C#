@@ -1,0 +1,215 @@
+// AQUI É A CLASSE DE MOCHILA
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace meuJogoTeste
+{
+    internal class Backpack{
+
+        private string itens;
+
+        public Backpack() {
+            itens = "";
+        }
+
+        public void AdicionarItem(string item)
+        {
+            itens += item + ", ";
+        }
+
+        public string mochilaInteira()
+        { return itens; }
+
+        
+        
+        
+
+
+
+    }
+    
+
+
+
+
+}
+
+
+
+/////////////////////////////////////////////////////////////////////
+// AQUI É A CLASSE DE INIMIGOS
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace meuJogoTeste
+{
+    internal class Inimigos
+    {
+
+        private string inimigos;
+
+        public Inimigos() {
+            inimigos = "";
+        }
+
+        public void AdicionarInimigo(string inimigo)
+        {
+            inimigos += inimigo;
+        }
+
+        public string TodosMonstros()
+        { return inimigos; }
+
+
+        /*public void StatusMonstros(string monstrolutar){
+
+            if (StatusDoMonstro == "Mecha Polvo")
+                Console.WriteLine("Escolheu Mecha Polvo"); ;
+        */
+        }
+
+
+
+    }
+
+
+//////////////////////////////////////////////////////////
+// AQUI É O CÓDIGO FONTE
+
+using System;
+using System.ComponentModel;
+using System.Globalization;
+using System.Runtime.InteropServices;
+using meuJogoTeste;
+
+namespace meuJogoTeste
+{
+    internal class teste
+    {
+
+        static void Main(string[] args)
+        {
+            Backpack bag = new Backpack();
+
+            Inimigos inimigos = new Inimigos();
+
+
+
+            Console.WriteLine("""
+            [1] Arma de lazer
+            [2] Arma de ácido
+            [3] Espeto de madeira
+            Qual arma você prefere: ou escreva 'sair' para fechar
+            """);
+
+            string arma = Console.ReadLine();
+
+            if (arma == "1")
+                arma = "Arma de lazer";
+
+            if (arma == "2")
+                arma = "Arma de ácido";
+
+            if (arma == "3")
+                arma = "Espeto de madeira";
+
+
+            bag.AdicionarItem(arma);
+
+
+
+
+            Console.WriteLine("Lista de inimigos: ");
+
+
+            Console.WriteLine("""
+            [1] Mecha Polvo
+            [2] Girafa duas cabeças
+            [3] Baiacú de ferro
+            [4] Leão holográfico
+            Qual arma você prefere: ou escreva 'sair' para fechar
+            """);
+
+
+            string monstroLutar = Console.ReadLine();
+
+            if (monstroLutar == "1")
+                monstroLutar = "Mecha Polvo";
+
+            if (monstroLutar == "2")
+                monstroLutar = "Girafa de duas cabeças";
+
+            if (monstroLutar == "3")
+                monstroLutar = "Baiacú de ferro";
+
+            if (monstroLutar == "4")
+                monstroLutar = "Leão holográfico";
+
+
+            inimigos.AdicionarInimigo(monstroLutar);
+
+
+            Console.WriteLine("Voce vai utilizar " + bag.mochilaInteira() + "para enfrentar " + inimigos.TodosMonstros());
+
+
+
+            if (inimigos.TodosMonstros() == "Mecha Polvo")
+            {
+                Console.WriteLine();
+                Console.WriteLine("  [Mecha Polvo]  ");
+                Console.WriteLine();
+                Console.WriteLine(" -Descrição: Seus tentaculos são muito destrutivos (Apenas na água)");
+                Console.WriteLine(" -Vida: 100 (1500 de vida ná água)");
+                Console.WriteLine(" -Defesa: 100");
+                Console.WriteLine(" -Tamanho: 13 metros");
+            }
+
+            if (inimigos.TodosMonstros() == "Girafa de duas cabeças")
+            {
+                Console.WriteLine();
+                Console.WriteLine("  [Girafa de duas cabeças]  ");
+                Console.WriteLine(" -Descrição: Duas cabeças pensam melhor do que uma");
+                Console.WriteLine(" -Vida: 700");
+                Console.WriteLine(" -Defesa: 80");
+                Console.WriteLine(" -Tamanho: 8 metros");
+            }
+
+            if (inimigos.TodosMonstros() == "Baiacú de ferro")
+            {
+                Console.WriteLine();
+                Console.WriteLine("  [Baiacú de ferro]  ");
+                Console.WriteLine(" -Descrição: Muito poderoso quando em defesa, espinhos metalizados");
+                Console.WriteLine(" -Vida: 200");
+                Console.WriteLine(" -Defesa: 800");
+                Console.WriteLine(" -Tamanho: 2 metros");
+            }
+
+            if (inimigos.TodosMonstros() == "Leão holográfico")
+            {
+                Console.WriteLine();
+                Console.WriteLine("  [Leão holográfico]  ");
+                Console.WriteLine(" -Descrição: É mal, é forte, é feito de luz de um projetor");
+                Console.WriteLine(" -Vida: (Não pode ferir uma imagem)");
+                Console.WriteLine(" -Defesa: (Não pode ferir uma imagem)");
+                Console.WriteLine(" -Tamanho: Dimensionavel");
+
+
+            }
+
+
+        }
+
+
+
+
+
+    }
+}
+
